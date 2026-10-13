@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #eef4ff, #dbeafe);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+    text-align: center;
+    color: #17365d;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input,
+select {
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fff;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 35px;
+}
+
+button {
+    background: #17365d;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.result {
+    margin-top: 35px;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    background: #f0f7ff;
+    border: 1px solid #dbeafe;
+}
+
+.approved {
+    color: #15803d;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.rejected {
+    color: #dc2626;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.amount {
+    margin-top: 15px;
+    font-size: 21px;
+    color: #17365d;
+    font-weight: bold;
+}
+
+.note {
+    margin-top: 15px;
+    color: #777;
+    font-size: 13px;
+}
+
+.loading {
+    display: none;
+    margin-top: 15px;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}

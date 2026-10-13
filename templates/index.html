@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Banking Customer Analysis</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #17365d;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        input,
+        select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #17365d;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: #17365d;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0f2745;
+        }
+
+        .note {
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Banking Customer Analysis</h1>
+
+        <p class="subtitle">
+            Enter your details to get a predicted loan eligibility result
+        </p>
+
+
+        <!-- ========================================= -->
+        <!-- LOAN PREDICTION FORM -->
+        <!-- ========================================= -->
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+
+                <!-- Name -->
+
+                <div class="form-group">
+
+                    <label>Name</label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <!-- Education -->
+
+                <div class="form-group">
+
+                    <label>Education</label>
+
+                    <select name="education" required>
+
+                        <option value="">
+                            Select Education
+                        </option>
+
+                        <option value="1">
+                            Graduate
+                        </option>
+
+                        <option value="0">
+                            Not Graduate
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Self Employed -->
+
+                <div class="form-group">
+
+                    <label>Self Employed</label>
+
+                    <select name="self_employed" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="1">
+                            Yes
+                        </option>
+
+                        <option value="0">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Annual Income -->
+
+                <div class="form-group">
+
+                    <label>Annual Income</label>
+
+                    <input
+                        type="number"
+                        name="income_annum"
+                        min="0"
+                        placeholder="Example: 5000000"
+                        required>
+
+                </div>
+
+
+                <!-- Requested Loan Amount -->
+
+                <div class="form-group">
+
+                    <label>Requested Loan Amount</label>
+
+                    <input
+                        type="number"
+                        name="loan_amount"
+                        min="0"
+                        placeholder="Example: 20000000"
+                        required>
+
+                </div>
+
+
+                <!-- Loan Term -->
+
+                <div class="form-group">
+
+                    <label>Loan Term (Years)</label>
+
+                    <input
+                        type="number"
+                        name="loan_term"
+                        min="1"
+                        placeholder="Example: 10"
+                        required>
+
+                </div>
+
+
+                <!-- CIBIL Score -->
+
+                <div class="form-group">
+
+                    <label>CIBIL Score</label>
+
+                    <input
+                        type="number"
+                        name="cibil_score"
+                        min="300"
+                        max="900"
+                        placeholder="Example: 750"
+                        required>
+
+                </div>
+
+
+                <!-- Total Assets -->
+
+                <div class="form-group">
+
+                    <label>Total Assets</label>
+
+                    <input
+                        type="number"
+                        name="total_assets"
+                        min="0"
+                        placeholder="Example: 10000000"
+                        required>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Button -->
+
+            <div class="button-container">
+
+                <button type="submit">
+                    Check Loan Eligibility
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <p class="note">
+            This is a machine-learning prediction based on the
+            information provided. It is not a guaranteed bank decision.
+        </p>
+
+    </div>
+
+</body>
+
+</html>

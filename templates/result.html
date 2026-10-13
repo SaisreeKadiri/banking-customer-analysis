@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loan Prediction Result</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .result-box {
+
+            background: white;
+
+            width: 100%;
+            max-width: 600px;
+
+            padding: 40px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+
+            color: #17365d;
+
+            margin-bottom: 25px;
+        }
+
+        .name {
+
+            font-size: 20px;
+
+            color: #444;
+
+            margin-bottom: 25px;
+        }
+
+        .approved {
+
+            color: green;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .rejected {
+
+            color: red;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .amount {
+
+            font-size: 22px;
+
+            color: #17365d;
+
+            font-weight: bold;
+
+            margin-top: 20px;
+        }
+
+        .button {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 12px 25px;
+
+            background: #17365d;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+        }
+
+        .button:hover {
+
+            background: #0f2745;
+        }
+
+        .note {
+
+            margin-top: 25px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="result-box">
+
+
+        <h1>
+            Loan Prediction Result
+        </h1>
+
+
+        <div class="name">
+
+            Customer:
+
+            <strong>
+                {{ name }}
+            </strong>
+
+        </div>
+
+
+        {% if approval_result == "Loan Approved" %}
+
+
+            <div class="approved">
+
+                ✓ Loan Approved
+
+            </div>
+
+
+            <div class="amount">
+
+                Estimated Loan Amount:
+
+                <br><br>
+
+                ₹ {{ "{:,.2f}".format(predicted_loan_amount) }}
+
+            </div>
+
+
+        {% else %}
+
+
+            <div class="rejected">
+
+                ✕ Loan Not Approved
+
+            </div>
+
+
+        {% endif %}
+
+
+        <p class="note">
+
+            This is a machine-learning prediction based on
+            the information provided.
+
+            It is not a guaranteed bank decision.
+
+        </p>
+
+
+        <a href="/" class="button">
+
+            Check Another Customer
+
+        </a>
+
+
+    </div>
+
+
+</body>
+
+</html>
